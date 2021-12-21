@@ -37,9 +37,6 @@ public class InPlayScreen implements Screen {
     private void createCreatures(CreatureFactory creatureFactory) {
         this.player = creatureFactory.newPlayer(this.messages);  //创造一个玩家
 
-        //for (int i = 0; i < 5; i++) {
-          //  creatureFactory.newFungus();
-        //}
         int num=225;
         Color[] colors={AsciiPanel.brightRed,AsciiPanel.brightYellow,AsciiPanel.brightGreen,AsciiPanel.brightBlue,AsciiPanel.brightMagenta};
         ExecutorService exec=Executors.newCachedThreadPool();

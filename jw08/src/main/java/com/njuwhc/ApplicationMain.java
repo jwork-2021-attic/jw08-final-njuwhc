@@ -11,10 +11,7 @@ import com.njuwhc.control.RefreshGUI;
 import com.njuwhc.screen.Screen;
 import com.njuwhc.screen.StartScreen;
 
-/**
- *
- * @author Aeranythe Echosong
- */
+
 public class ApplicationMain extends JFrame implements KeyListener {
 
     private AsciiPanel terminal;

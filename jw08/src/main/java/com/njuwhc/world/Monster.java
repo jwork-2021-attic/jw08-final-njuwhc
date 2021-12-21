@@ -14,9 +14,6 @@ public class Monster extends Creature implements Runnable {
     int direction;
 
 
-
-    
-
     @Override
     public synchronized void attack(Creature other) {
         //if(this.color()!=other.color())

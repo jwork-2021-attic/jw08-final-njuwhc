@@ -34,7 +34,9 @@ public class PlayScreen implements Screen {
 
         CreatureFactory creatureFactory = new CreatureFactory(this.world);
         createCreatures(creatureFactory);
-
+        while(true){
+            
+        }
     }
 
     private void createCreatures(CreatureFactory creatureFactory) {
