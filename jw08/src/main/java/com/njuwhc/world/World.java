@@ -184,6 +184,67 @@ public class World {
         
     }
 
+    public void output() throws IOException
+    {
+        
+        try {
+            outputStream = new FileWriter("output.txt");
+            char c='0';
+            for (int i=0;i<width;i++)
+            {
+                for(int j=0;j<height;j++)
+            {
+                if(tiles[i][j]==Tile.FLOOR)
+                    c='0';
+                else if(tiles[i][j]==Tile.WALL)
+                    c='1';
+                outputStream.write(c);
+            }
+            outputStream.write('\n');
+            }
+
+            
+
+            for(Creature creature:creatures)
+            {
+                String string="";
+                string+="c+";
+                string+=creature.x();
+                string+="+";
+                string+=creature.y();
+                string+="+";
+                string+=(int)creature.glyph();
+                string+="+";
+                string+=creature.color().getRGB();
+                outputStream.write(string);
+                outputStream.write('\n');
+            }
+
+            for(Bullet bullet:bullets)
+            {
+                String string="";
+                string+="b+";
+                string+=bullet.x();
+                string+="+";
+                string+=bullet.y();
+                string+="+";
+                string+=(int)bullet.glyph();
+                string+="+";
+                string+=bullet.color().getRGB();
+                outputStream.write(string);
+                outputStream.write('\n');
+            }
+
+            outputStream.write('\n');
+
+            } finally {
+            if (outputStream != null) {
+            outputStream.close();
+            }
+            }
+        
+    }
+
 
 
 

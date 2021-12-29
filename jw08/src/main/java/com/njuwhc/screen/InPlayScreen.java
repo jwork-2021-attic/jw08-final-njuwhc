@@ -2,6 +2,8 @@ package com.njuwhc.screen;
 
 import com.njuwhc.world.*;
 import com.njuwhc.asciiPanel.AsciiPanel;
+import com.njuwhc.recorder.Record;
+
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -31,7 +33,7 @@ public class InPlayScreen implements Screen {
 
         CreatureFactory creatureFactory = new CreatureFactory(this.world);
         createCreatures(creatureFactory);
-
+        
     }
 
     private void createCreatures(CreatureFactory creatureFactory) {
@@ -48,7 +50,7 @@ public class InPlayScreen implements Screen {
         //world = new WorldBuilder(90, 31).makeCaves().build();
         //world = new WorldBuilder(50, 50).makeCaves().build();
         world = new WorldBuilder(50, 50).worldInput().build();
-        world.worldOutput();
+        
     }
 
     private void displayTiles(AsciiPanel terminal, int left, int top) {

@@ -2,6 +2,8 @@ package com.njuwhc.screen;
 
 import com.njuwhc.world.*;
 import com.njuwhc.asciiPanel.AsciiPanel;
+import com.njuwhc.recorder.Record;
+
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -34,7 +36,8 @@ public class PlayScreen implements Screen {
 
         CreatureFactory creatureFactory = new CreatureFactory(this.world);
         createCreatures(creatureFactory);
-
+        //world.output();
+        new Thread(new Record(world)).start();
     }
 
     private void createCreatures(CreatureFactory creatureFactory) {
