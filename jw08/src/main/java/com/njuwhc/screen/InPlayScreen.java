@@ -33,6 +33,8 @@ public class InPlayScreen implements Screen {
 
         CreatureFactory creatureFactory = new CreatureFactory(this.world);
         createCreatures(creatureFactory);
+
+        //new Thread(new Record(world)).start();
         
     }
 

@@ -6,14 +6,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class World {
 
     private Tile[][] tiles;
     private int width;
     private int height;
-    private List<Creature> creatures;
-    private List<Bullet> bullets;
+    public List<Creature> creatures;
+    public List<Bullet> bullets;
     private FileWriter outputStream;
     private FileReader inputStream;
 
@@ -23,8 +24,10 @@ public class World {
         this.tiles = tiles;
         this.width = tiles.length;
         this.height = tiles[0].length;
-        this.creatures = new ArrayList<>();
-        this.bullets=new ArrayList<>();
+        //this.creatures = new ArrayList<>();
+        this.creatures = new CopyOnWriteArrayList<>();
+        //this.bullets=new ArrayList<>();
+        this.bullets = new CopyOnWriteArrayList<>();
         this.outputStream=null;
         this.inputStream=null;
     }
@@ -57,6 +60,10 @@ public class World {
         if (tile(x, y).isDiggable()) {
             tiles[x][y] = Tile.FLOOR;
         }
+    }
+
+    public synchronized void setTILE(int x, int y,Tile tile) {
+        tiles[x][y] = tile;
     }
 
     public synchronized void addAtEmptyLocation(Creature creature) {

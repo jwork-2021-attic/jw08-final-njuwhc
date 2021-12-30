@@ -23,6 +23,23 @@ public abstract class RestartScreen implements Screen {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
+            
+            case KeyEvent.VK_B:  //回放
+                try {
+                    return new RePlayScreen();
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+
+            case KeyEvent.VK_F:    //指定生成新地图 remake
+                try {
+                    return new InPlayScreen();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            
             default:
                 return this;
         }

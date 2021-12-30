@@ -125,7 +125,7 @@ public class PlayScreen implements Screen {
         if(this.player.hp()<1)
             return new LoseScreen();
         switch (key.getKeyCode()) {
-            case KeyEvent.VK_LEFT:
+            case KeyEvent.VK_LEFT:  //左移
             if(player.x()>0)
             {
                 player.setDirection(1);
@@ -133,7 +133,7 @@ public class PlayScreen implements Screen {
                 player.moveBy(-1, 0);
             }
                 break;
-            case KeyEvent.VK_RIGHT:
+            case KeyEvent.VK_RIGHT:  //右移
             if(player.x()<this.world.width()-1)
             {
                 player.setDirection(2);
@@ -141,7 +141,7 @@ public class PlayScreen implements Screen {
                 player.moveBy(1, 0);
             }
                 break;
-            case KeyEvent.VK_UP:
+            case KeyEvent.VK_UP:  //上移
             if(player.y()>0)
             {
                 player.setDirection(3);
@@ -149,7 +149,7 @@ public class PlayScreen implements Screen {
                 player.moveBy(0, -1);
             }
                 break;
-            case KeyEvent.VK_DOWN:
+            case KeyEvent.VK_DOWN:  //下移动
             if(player.y()<this.world.height()-1)
             {
                 player.setDirection(4);
@@ -167,6 +167,14 @@ public class PlayScreen implements Screen {
             case KeyEvent.VK_W:  //直接胜利
                 return new WinScreen();
 
+            case KeyEvent.VK_B:  //回放
+                try {
+                    return new RePlayScreen();
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+
             case KeyEvent.VK_1: 
                 player.setColor(AsciiPanel.brightRed);
                 break;
@@ -183,7 +191,7 @@ public class PlayScreen implements Screen {
                 player.setColor(AsciiPanel.brightMagenta);
                 break;
 
-            case KeyEvent.VK_F:    //随机生成新地图 remake
+            case KeyEvent.VK_F:    //指定生成新地图 remake
                 try {
                     return new InPlayScreen();
                 } catch (IOException e) {
